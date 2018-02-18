@@ -117,102 +117,59 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
 	  rf_we <= 1'b0; //don't write
 	  alu_op <= 2'b10; //bit 1 set to 1 so stat reg not changed
           wb_sel <= 1'b1; //load 0
-	  
 	end
 
-	else if (opcode == LOD) //LDX, LDA, LDP, LDR
+	if (present_state == fetch)
 	begin
-	
+	  #5 $display ("Fetch."); //Delay 5 ns so $monitor will print fetch
+	  if (opcode == ALU_OP)
+	  begin
+	    rf_we <= 1'b0; //don't write
+	    alu_op <= 2'b00; //arithmetic operation
+            wb_sel <= 1'b0; //load
+          end
 	end
 
-	else if (opcode == STR) //
+	if (present_state == decode)
 	begin
-	
+	  #5 $display ("decode."); //Delay 5 ns so $monitor will print decode
+          if (opcode == ALU_OP)
+	  begin
+	    alu_op <= 2'b00; //arithmetic operation
+            wb_sel <= 1'b0; //load
+          end
 	end
 
-	else if (opcode == SWP)
+	if (present_state == execute)
 	begin
-	
+	  #5 $display ("Execute."); //Delay 5 ns so $monitor will print execute
+	  if (opcode == ALU_OP)
+	  begin
+            if(mm == 4'b1000) //ADI
+            begin
+              alu_op <= 2'b01; //arithmetic, uses immediate
+            end
+            else //The rest of the arithemetic operations
+            begin
+	      alu_op <= 2'b00; //does not use immediate
+            end
+          end
 	end
 
-	else if (opcode == BRA)
+	if (present_state == mem)
 	begin
-	
+	  #5 $display ("Mem."); //Delay 5 ns so $monitor will print mem
+	  if (opcode == ALU_OP)
+	  begin
+	    rf_we <= 1'b1; //write
+          end
 	end
 
-	else if (opcode == BRR)
+	if (present_state == writeback) // no writeing in part 1
 	begin
-	
+	  #5 $display ("Writeback."); //Delay 5 ns so $monitor will print writeback
 	end
 
-	else if (opcode == BNE)
-	begin
-	
-	end
-
-	else if (opcode == ALU_OP)
-	begin
-	  if (mm == 4'b1000) //ADI
-	  begin
-	    
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b0001) //ADD
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b0010) //SUB
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b0100) //NOT
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b0101) //OR
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b0110) //AND
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b0111) //XOR
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b1000) //RTR
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b1001) //RTL
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b1010) //SHR
-	  begin
-
-	  end
-
-	  else if (mm == 4'b0000 && stat == 4'b1011) //SHL
-	  begin
-
-	  end
-	
-	end
-
-	else if (opcode == HLT)
-	begin
-	
-	end
     end
 
 
