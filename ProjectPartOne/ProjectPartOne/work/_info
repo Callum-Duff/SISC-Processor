@@ -1,0 +1,170 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne
+valu
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 W0L>RIQWAR4jllG6FV6gf1
+I>>j:V]N<n6QzGkIESc4`I3
+R0
+w1518399365
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/alu.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/alu.v
+L0 6
+Z2 OL;L;10.6a;65
+!s108 1518400316.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/alu.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/alu.v|
+!i113 0
+Z3 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z4 tCvgOpt 0
+vctrl
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 FG5OabJ^W0c?7J]2Z5?[l0
+IJFbKaVaWcWQjW9m`WWc8]0
+R0
+w1519054881
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/ctrl.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/ctrl.v
+L0 6
+R2
+!s108 1519054883.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/ctrl.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/ctrl.v|
+!i113 0
+R3
+R4
+vmux32
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 Acz_fIGhQd8CLP=K1MHX>1
+I36JOdemOg98Z^4b03Nk8d0
+R0
+w1518396107
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux32.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux32.v
+L0 6
+R2
+!s108 1519055046.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux32.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux32.v|
+!i113 0
+R3
+R4
+vmux4
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 HRz]=:ikHCjI1m7o^]0YV0
+IDkc:5bY7MUMWP]Je8H`;^2
+R0
+w1518396895
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux4.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux4.v
+L0 6
+R2
+!s108 1519054997.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux4.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/mux4.v|
+!i113 0
+R3
+R4
+vrf
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 XVDm?U9d[kC1>4Q]JPGm:0
+IWI>ziZgIE<UOZogZFl?XL0
+R0
+w1518398584
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/rf.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/rf.v
+L0 6
+R2
+!s108 1518400332.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/rf.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/rf.v|
+!i113 0
+R3
+R4
+vsisc
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 PLYnPoUC`EMD^R^A@iz;50
+I9emMEMQL0JA>TD<A:=RZd2
+R0
+w1519055221
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc.v
+L0 6
+R2
+!s108 1519055223.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc.v|
+!i113 0
+R3
+R4
+vsisc_tb
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 X_Z<8j<8m4G8`Ro]DPh@`2
+I3abhBIANo;Tf8`HTIPP`z1
+R0
+w1517586326
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc_tb_p1.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc_tb_p1.v
+L0 6
+R2
+!s108 1518400295.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc_tb_p1.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/sisc_tb_p1.v|
+!i113 0
+R3
+R4
+vstatreg
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 N8RNk@:0mCn87Q8FG?AQL3
+IKEa83USe^<zA9PI[@YXkc0
+R0
+w1518397755
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/statreg.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/statreg.v
+L0 6
+R2
+!s108 1518400310.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/statreg.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartOne/statreg.v|
+!i113 0
+R3
+R4
