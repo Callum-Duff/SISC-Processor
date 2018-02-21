@@ -24,10 +24,10 @@ module sisc (clk, rst_f, ir);
 
 
 // component instantiation goes here
-  mux4 muxIR( ir[23:20], ir[15:12], sel, mux4ToRF);
+  mux4 muxIR( ir[15:12], ir[23:20], 1'b0, mux4ToRF);
   rf register(clk, ir[19:16], mux4ToRF, ir[23:20], mux32ToRF, ctrlToRFrf_we, rfToALUrsa, rfToALUrsb);
   alu logicUnit(clk, rfToALUrsa, rfToALUrsb, ir[15:0], ctrlToALUalu_op, aluToMUX32, aluToSTATstat, aluToSTATenable);
-  mux32 muxALU( 32'h00000000, aluToMUX32, ctrlToMUX32sel, mux32ToRF);   
+  mux32 muxALU(aluToMUX32, 32'h00000000, ctrlToMUX32sel, mux32ToRF);   
   statreg status(clk, aluToSTATstat, aluToSTATenable, statToCTRLstat);
   ctrl control(clk, rst_f, ir[31:28], ir[27:24], statToCTRLstat, ctrlToRFrf_we, ctrlToALUalu_op, ctrlToMUX32sel);
 

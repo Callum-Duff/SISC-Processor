@@ -69,7 +69,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
        of rst_f. Notice that the computer is reset when rst_f is low, not high. */
   always @ (posedge clk, negedge rst_f)
   begin
-	if (rst_f==1'b0) //reset is low
+	if (rst_f==0) //reset is low
 	begin
 	  #50 next_state<=start0;
 //present_state <= start1; //does in sync with clock
@@ -114,9 +114,9 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
   always @(negedge clk) // when present_state is changed need to update next_state
     begin
 	//default values
-	rf_we <= 1'b0;
+	rf_we <= 0;
 	alu_op <= 2'b10;
-	wb_sel <= 1'b0;
+	wb_sel <= 0;
 /*
   	if (opcode == NOOP) //NOP
 	begin
@@ -154,9 +154,9 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
 
 	else if (present_state == writeback) // only write in writeback
 	begin
-          rf_we <= 1'b1; //write
+          rf_we <= 1; //write
           alu_op <= 2'b10;
-          wb_sel<=1'b0;
+          wb_sel<=0;
 	end
     end
 

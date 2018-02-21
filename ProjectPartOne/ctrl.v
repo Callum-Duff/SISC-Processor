@@ -156,7 +156,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
 	begin
           rf_we <= 1; //write
           alu_op <= 2'b10;
-          wb_sel<=0;
+          //wb_sel<=0;
 	end
     end
 
