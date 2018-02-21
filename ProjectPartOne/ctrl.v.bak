@@ -67,15 +67,21 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
   /* TODO: Write a sequential procedure that progresses the fsm to the next state on the
        positive edge of the clock, OR resets the state to 'start1' on the negative edge
        of rst_f. Notice that the computer is reset when rst_f is low, not high. */
+/* TODO: Write a combination procedure that determines the next state of the fsm. */
   always @ (posedge clk, negedge rst_f)
   begin
 	if (rst_f==0) //reset is low
 	begin
-	  #50 next_state<=start0;
-//present_state <= start1; //does in sync with clock
+	  next_state<=start1;
 	end
 	else
-	begin
+        begin
+          present_state <= next_state;
+	end  
+  end 
+
+  always @ (present_state)
+  begin
           if (present_state == start0)
 	  begin
 		next_state = start1;
@@ -104,86 +110,34 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
 	  begin
 		next_state = fetch;
 	  end
-          present_state = next_state;
-	end  
-  end 
-
+  end
 
   
-  /* TODO: Write a combination procedure that determines the next state of the fsm. */
-  always @(negedge clk) // when present_state is changed need to update next_state
-    begin
-	//default values
-	rf_we <= 0;
-	alu_op <= 2'b10;
-	wb_sel <= 0;
-/*
-  	if (opcode == NOOP) //NOP
-	begin
-	   //#5 $display ("Here NOOP"); //Delay 5 ns so $monitor will print fetch
-	  alu_op <= 2'b00;
-          wb_sel <= 1'b1; //load 0
-	end
-*/
-
-        if (present_state == execute)
-	begin
-	  //#5 $display ("present_state = Execute"); //Delay 5 ns so $monitor will print execute
-	  if (opcode == ALU_OP && mm == 4'b1000)
-	  begin
-              alu_op <= 2'b01; //arithmetic, uses immediate
-          end
-          else //The rest of the arithemetic operations
-          begin
-	    alu_op <= 2'b00; //arithmetic, does not use immediate
-          end
-	end
-
-	else if (present_state == mem) //no memory access needed in this part
-	begin
-	  //#5 $display ("present_state = Mem"); //Delay 5 ns so $monitor will print mem
-	  if (opcode == ALU_OP && mm == 4'b1000)
-	  begin
-              alu_op <= 2'b11; //arithmetic, uses immediate
-          end
-          else //The rest of the arithemetic operations
-          begin
-	    alu_op <= 2'b10; //arithmetic, does not use immediate
-          end
-	end
-
-	else if (present_state == writeback) // only write in writeback
-	begin
-          rf_we <= 1; //write
-          alu_op <= 2'b10;
-          wb_sel<=0;
-	end
-    end
+  
 
   /* TODO: Generate outputs based on the FSM states and inputs. For Parts 2, 3 and 4 you will
        add the new control signals here. */
   //Part 1: NOP, ADD, ADI, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL, HLT
-  /*always @ (present_state, opcode, mm)
+  always @ (present_state, opcode, mm)
     begin
 	//default values
 	rf_we <= 1'b0;
 	alu_op <= 2'b10;
 	wb_sel <= 1'b0;
+
   	if (opcode == NOOP) //NOP
 	begin
-	   //#5 $display ("Here NOOP"); //Delay 5 ns so $monitor will print fetch
 	  alu_op <= 2'b00;
           wb_sel <= 1'b1; //load 0
 	end
 
 	else if (present_state == execute)
 	begin
-	  //#5 $display ("present_state = Execute"); //Delay 5 ns so $monitor will print execute
-	  if (opcode == ALU_OP && mm == 4'b1000)
+	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
               alu_op <= 2'b01; //arithmetic, uses immediate
           end
-          else //The rest of the arithemetic operations
+          else //The rest of the arithemetic operations: ADD, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL
           begin
 	    alu_op <= 2'b00; //arithmetic, does not use immediate
           end
@@ -191,33 +145,30 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel);
 
 	else if (present_state == mem) //no memory access needed in this part
 	begin
-	  //#5 $display ("present_state = Mem"); //Delay 5 ns so $monitor will print mem
-	  if (opcode == ALU_OP && mm == 4'b1000)
+	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
-              alu_op <= 2'b11; //arithmetic, uses immediate
+              alu_op <= 2'b11; //save stat reg, uses immediate
           end
-          else //The rest of the arithemetic operations
+          else //The rest of the arithemetic operations: ADD, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL
           begin
-	    alu_op <= 2'b10; //arithmetic, does not use immediate
+	    alu_op <= 2'b10; //save stat reg, does not use immediate
           end
 	end
 
 	else if (present_state == writeback) // only write in writeback
 	begin
           rf_we <= 1'b1; //write
-          alu_op <= 2'b10;
-          wb_sel<=1'b0;
+          //alu_op <= 2'b10; //save stat reg, does not use immediate
 	end
 
     end
-*/
+
 
 
 // Halt on HLT instruction
   
   always @ (opcode)
   begin
-    present_state <= fetch;
     if (opcode == HLT)
     begin 
       #5 $display ("Halt."); //Delay 5 ns so $monitor will print the halt instruction
