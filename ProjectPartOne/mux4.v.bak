@@ -14,7 +14,7 @@ module mux4 (in_a, in_b, sel, out);
    *   - sel = 0: Controls which input is seen at the output.
    *
    *  Outputs:
-   *   - out (4 bits): Output from the multiplexer.
+   *   - out = input read_regb in rf (4 bits): Output from the multiplexer.
    *
    */
 

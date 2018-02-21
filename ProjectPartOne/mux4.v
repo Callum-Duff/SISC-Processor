@@ -9,12 +9,12 @@ module mux4 (in_a, in_b, sel, out);
    *  4-BIT MULTIPLEXER - mux16.v
    *
    *  Inputs:
-   *   - in_a = instr[15:12] (4 bits): First input to the multiplexer. Chosen when sel = 0.
-   *   - in_b = instr[23:20] (4 bits): Second input to the multiplexer. Chosen when sel = 1.
-   *   - sel = 0: Controls which input is seen at the output.
+   *   - in_a (4 bits): First input to the multiplexer. Chosen when sel = 0.
+   *   - in_b (4 bits): Second input to the multiplexer. Chosen when sel = 1.
+   *   - sel: Controls which input is seen at the output.
    *
    *  Outputs:
-   *   - out = input read_regb in rf (4 bits): Output from the multiplexer.
+   *   - out (4 bits): Output from the multiplexer.
    *
    */
 
