@@ -49,7 +49,7 @@ module sisc (clk, rst_f);
   //---------------Part 2 component instantiation goes here----------------------
   ir instructionRegister(clk, ir_load, read_data, instr);
   im instructionMemory(read_addr, read_data);
-  br branchRegister(pc, instr[15:0], br_sel, br_addr);
+  br branchRegister(pc+1, instr[15:0], br_sel, br_addr);
   pc programCounter(clk, br_addr, pc_sel, pc_write, pc_rst, pc);
   //-----------------------------------------------------------------------------
   

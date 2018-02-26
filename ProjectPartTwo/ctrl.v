@@ -78,7 +78,8 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
   begin
 	if (rst_f==0) //reset is low
 	begin
-	  next_state<=start1;
+          present_state <= start1;
+	  next_state <= fetch;
 	  pc_rst <= 1'b1;
 	end
 	else
@@ -151,12 +152,14 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == fetch) //increment pc
 	begin
-	  pc_sel <= 1'b0; //inc pc: PC <- [PC] + 1
+          pc_write <= 1'b1; //save the value: Memory address <- [PC]
           ir_load <= 1'b1; //IR <- Memory data
+	  pc_sel <= 1'b0; //inc pc: PC <- [PC] + 1
 	end
 
 	else if (present_state == decode) 
 	begin
+          //if ADI br_sel<=1
 	  if (opcode == BRR || opcode == BNR) 
           begin
             br_sel <= 1'b0; //relative branch
@@ -178,11 +181,12 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	      pc_sel <= 1'b1; //get branch address
             end
 	    else if (mm == stat) //are equal
-	      if(opcode == BNE) //BNE?
-              begin
+	      //if(opcode == BNE) //BNE?
+              //begin
                 pc_sel <= 1'b0; //don't branch
-              end
-              else if(opcode == BRA && opcode == BRR)
+              //end
+              //else
+              if(opcode == BRA && opcode == BRR)
               begin
                 pc_sel <= 1'b1; //branch
               end
@@ -191,13 +195,14 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
               begin
                 pc_sel <= 1'b1; // branch
               end
-              else if(opcode == BRA && opcode == BRR)
-              begin
-                pc_sel <= 1'b0; //don't branch
-              end
+              //else if(opcode == BRA && opcode == BRR)
+              //begin
+                //pc_sel <= 1'b0; //don't branch
+              //end
 	  end 
 	  
-	  else if (opcode == ALU_OP && mm == 4'b1000) //ADI
+          //else
+	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
             alu_op <= 2'b01; //arithmetic, uses immediate
           end
@@ -222,7 +227,6 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	else if (present_state == writeback) // only write in writeback
 	begin
           rf_we <= 1'b1; //write
-          pc_write <= 1'b1; //save the value: Memory address <- [PC]
 	end
 
     end
