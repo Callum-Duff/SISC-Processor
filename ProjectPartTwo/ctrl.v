@@ -125,6 +125,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
   /* TODO: Generate outputs based on the FSM states and inputs. For Parts 2, 3 and 4 you will
        add the new control signals here. */
   //Part 1: NOP, ADD, ADI, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL, HLT
+  //Part 2: BRA, BRR, BNE = branch of not equal, BNR
   always @ (present_state, opcode, mm)
     begin
 	//default values part 1
@@ -133,13 +134,13 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	wb_sel <= 1'b0;
 	
 	//default values part 2
-	pc_sel <= 1'b0; //By default increment the pc
-	pc_write <= 1'b1; //By default, set pc out
+	pc_sel <= 1'b1; //By default save branch address , don't increment the pc
+	pc_write <= 1'b0; //By default, don't save selected value/overrite saved value
 	pc_rst <= 1'b0; //Don't reset the pc!!
 	
 	br_sel <= 1'b0; //by default, relative branch
-	rb_sel <= 1'b0; //default select value for mux4
-	ir_load <= 1'b1; //by default load the read_data into the instruction register
+	rb_sel <= 1'b0; //default select value for mux4 b/c 0 from part1
+	ir_load <= 1'b0; //by default don't load the read_data into the instruction register
 	
 	
   	if (opcode == NOOP) //NOP
@@ -148,12 +149,58 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
           wb_sel <= 1'b1; //load 0
 	end
 
+	else if (present_state == fetch) //increment pc
+	begin
+	  pc_sel <= 1'b0; //inc pc: PC <- [PC] + 1
+          ir_load <= 1'b1; //IR <- Memory data
+	end
+
+	else if (present_state == decode) 
+	begin
+	  if (opcode == BRR || opcode == BNR) 
+          begin
+            br_sel <= 1'b0; //relative branch
+          end
+	  else //if (opcode == BRA || opcode == BNE) or everything else
+	  begin 
+	    br_sel <= 1'b1; //absolut(e) (vodka) branch
+	  end
+	  
+	end
+
 	else if (present_state == execute)
 	begin
-	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
+
+	  if (opcode == BRA || opcode == BRR || opcode == BNE || opcode == BNR) //branches
+          begin
+	    if(mm == 4'b0000) // unconditional branch (fig 5.15)
+	    begin
+	      pc_sel <= 1'b1; //get branch address
+            end
+	    else if (mm == stat) //are equal
+	      if(opcode == BNE) //BNE?
+              begin
+                pc_sel <= 1'b0; //don't branch
+              end
+              else if(opcode == BRA && opcode == BRR)
+              begin
+                pc_sel <= 1'b1; //branch
+              end
+            else //not equal
+              if(opcode == BNE) //BRE?
+              begin
+                pc_sel <= 1'b1; // branch
+              end
+              else if(opcode == BRA && opcode == BRR)
+              begin
+                pc_sel <= 1'b0; //don't branch
+              end
+	  end 
+	  
+	  else if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
-        alu_op <= 2'b01; //arithmetic, uses immediate
-      end
+            alu_op <= 2'b01; //arithmetic, uses immediate
+          end
           else //The rest of the arithmetic operations: ADD, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL
           begin
 	    alu_op <= 2'b00; //arithmetic, does not use immediate
@@ -175,6 +222,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	else if (present_state == writeback) // only write in writeback
 	begin
           rf_we <= 1'b1; //write
+          pc_write <= 1'b1; //save the value: Memory address <- [PC]
 	end
 
     end
