@@ -65,10 +65,10 @@ module sisc (clk, rst_f);
 
   initial
     begin
-      //monitor IR, R1-R6,RD_SEL,ALU_OP,WB_SEL,RF_WE, rf write_data, pc, pc_write, pc_sel, br_sel
-      $monitor("Time=%h, IR=%h,R1=%h, R2=%h, R3=%h, R4=%h, R5=%h, R6=%h, RD_SEL=%h, ALU_OP=%h, WB_SEL=%h, RF_WE=%h, WRITE_DATA=%h, PC=%h, PC_WRITE=%h, PC_SEL=%h, BR_SEL=%h"
+      //monitor IR, R1-R6,RB_SEL,ALU_OP,WB_SEL,RF_WE, rf write_data, pc, pc_write, pc_sel, br_sel
+      $monitor("Time=%h, IR=%h,R1=%h, R2=%h, R3=%h, R4=%h, R5=%h, R6=%h, RB_SEL=%h, ALU_OP=%h, WB_SEL=%h, RF_WE=%h, WRITE_DATA=%h, PC=%h, PC_WRITE=%h, PC_SEL=%h, BR_SEL=%h"
       ,$time,instr,register.ram_array[1],register.ram_array[2],register.ram_array[3],register.ram_array[4],register.ram_array[5],
-      register.ram_array[6], 32'h00000000, ctrlToALUalu_op, ctrlToMUX32sel, ctrlToRFrf_we, mux32ToRF, pc, pc_write, pc_sel, br_sel);
+      register.ram_array[6], rb_sel, ctrlToALUalu_op, ctrlToMUX32sel, ctrlToRFrf_we, mux32ToRF, pc, pc_write, pc_sel, br_sel);
     end
   
 // put a $monitor statement here.  

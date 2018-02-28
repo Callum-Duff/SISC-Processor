@@ -139,58 +139,59 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	pc_write <= 1'b0; //By default, don't save selected value/overwrite saved value
 	pc_rst <= 1'b0; //Don't reset the pc!!
 	
-	br_sel <= 1'b0; //by default, relative branch
+	br_sel <= 1'b1; //by default, absolute branch
 	rb_sel <= 1'b0; //default select value for mux4 b/c 0 from part1
 	ir_load <= 1'b0; //by default don't load the read_data into the instruction register
-
         if (present_state == fetch) //increment pc
 	begin
-          $display("Fetch");
+          $display("in fetch");
           pc_write <= 1'b1; //save the value: Memory address <- [PC]
           ir_load <= 1'b1; //IR <- Memory data
 	  pc_sel <= 1'b0; //inc pc: PC <- [PC] + 1
+
 	end
 
 	else if (present_state == decode) 
 	begin
-          $display("Decode");
+          $display("in decode");
           //if ADI br_sel<=1
 	  if (opcode == BRR || opcode == BNR) 
           begin
             br_sel <= 1'b0; //relative branch
           end
-	  else //if (opcode == BRA || opcode == BNE) or everything else
-	  begin 
-	    br_sel <= 1'b1; //absolute  branch
-	  end
+	 // else if (opcode == BRA || opcode == BNE)
+	//  begin 
+	 //   br_sel <= 1'b1; //absolute  branch
+	 // end
           if (opcode == BRA || opcode == BRR || opcode == BNE || opcode == BNR) //branch
+          $display("branch instr");
           begin
-            if (mm[0] == 0 && mm[1] == 0 && mm[2] == 0 && mm[3] == 0) //unconditional branch
+            if (mm == 4'b0000) //unconditional branch if all are 0
             begin
-              pc_sel<=1; //take branch
+              pc_sel<=1'b1; //take branch
             end
             else if (opcode == BRA || opcode == BRR) //logic positve branches
             begin
               // branch is taken when any CC bits are 1 and corresponding bits in stat is also 1
-              if ( (mm[0] == 1 && (stat[0] == 1)) || (mm[1] == 1 && (stat[0] == 1)) || (mm[2] == 1 && (stat[0] == 1)) || (mm[3] == 1 && (stat[0] == 1)) )
+              if ( ((mm[0] == 1) && (stat[0] == 1)) || ((mm[1] == 1) && (stat[1] == 1)) || ((mm[2] == 1) && (stat[2] == 1)) || ((mm[3] == 1) && (stat[3] == 1)) )
 	      begin
-                pc_sel <= 1; //take branch
+                pc_sel <= 1'b1; //take branch
               end
               else
               begin
-                pc_sel <= 0; //don't take branch
+                pc_sel <= 1'b0; //don't take branch
               end
             end
-            else if (opcode == BNE || opcode == BNR) //logic negative branches
+            else //if (opcode == BNE || opcode == BNR) //logic negative branches
             begin
               // branch is not taken when any CC bits are 1 and corresponding bits in stat is also 1
-              if ( (mm[0] == 1 && (stat[0] == 1)) || (mm[1] == 1 && (stat[0] == 1)) || (mm[2] == 1 && (stat[0] == 1)) || (mm[3] == 1 && (stat[0] == 1)) )
+              if ( ((mm[0] == 1) && (stat[0] == 1)) || ((mm[1] == 1) && (stat[1] == 1)) || ((mm[2] == 1) && (stat[2] == 1)) || ((mm[3] == 1) && (stat[3] == 1)) )
 	      begin
-                pc_sel <= 0; //don't take branch
+                pc_sel <= 1'b0; //don't take branch
               end
               else
               begin
-                pc_sel <= 1; //take branch
+                pc_sel <= 1'b1; //take branch
               end
             end
           end       
@@ -198,7 +199,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == execute)
 	begin
-          $display("Execute");
+          $display("in execute");
           //else
 	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
@@ -212,7 +213,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == mem) //no memory access needed in this part
 	begin
-          $display("Mem");
+          $display("in mem");
 	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
               alu_op <= 2'b11; //save stat reg, uses immediate
@@ -225,10 +226,9 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == writeback) // only write in writeback
 	begin
-          $display("Writeback");
+          $display("in writeback");
           rf_we <= 1'b1; //write
 	end
-
     end
 
 
