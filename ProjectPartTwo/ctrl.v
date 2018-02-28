@@ -142,14 +142,8 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	br_sel <= 1'b0; //by default, relative branch
 	rb_sel <= 1'b0; //default select value for mux4 b/c 0 from part1
 	ir_load <= 1'b0; //by default don't load the read_data into the instruction register
-	
-	if (opcode == NOOP) //NOP
-	begin
-	  alu_op <= 2'b00;
-          wb_sel <= 1'b1; //load 0
-	end
-	
-	else if (present_state == fetch) //increment pc
+
+        if (present_state == fetch) //increment pc
 	begin
           pc_write <= 1'b1; //save the value: Memory address <- [PC]
           ir_load <= 1'b1; //IR <- Memory data

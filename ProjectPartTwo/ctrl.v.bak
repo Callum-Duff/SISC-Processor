@@ -142,17 +142,10 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	br_sel <= 1'b0; //by default, relative branch
 	rb_sel <= 1'b0; //default select value for mux4 b/c 0 from part1
 	ir_load <= 1'b0; //by default don't load the read_data into the instruction register
-	
-	if (opcode == NOOP) //NOP
+
+        if (present_state == fetch) //increment pc
 	begin
-          $display("in NOOP");
-	  alu_op <= 2'b00;
-          wb_sel <= 1'b1; //load 0
-	end
-	
-	else if (present_state == fetch) //increment pc
-	begin
-          $display("in fetch");
+          $display("Fetch");
           pc_write <= 1'b1; //save the value: Memory address <- [PC]
           ir_load <= 1'b1; //IR <- Memory data
 	  pc_sel <= 1'b0; //inc pc: PC <- [PC] + 1
@@ -160,7 +153,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == decode) 
 	begin
-          $display("in decode");
+          $display("Decode");
           //if ADI br_sel<=1
 	  if (opcode == BRR || opcode == BNR) 
           begin
@@ -205,7 +198,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == execute)
 	begin
-          $display("in execute");
+          $display("Execute");
           //else
 	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
@@ -219,7 +212,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == mem) //no memory access needed in this part
 	begin
-          $display("in mem");
+          $display("Mem");
 	  if (opcode == ALU_OP && mm == 4'b1000) //ADI
 	  begin
               alu_op <= 2'b11; //save stat reg, uses immediate
@@ -232,6 +225,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 	else if (present_state == writeback) // only write in writeback
 	begin
+          $display("Writeback");
           rf_we <= 1'b1; //write
 	end
 
