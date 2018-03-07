@@ -7,244 +7,244 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-d//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo
+Z0 d//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo
 valu
-Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 31
 !i10b 1
 !s100 W0L>RIQWAR4jllG6FV6gf1
-IXgL;do?jCIln1a`T72CSh0
-Z1 d//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo
-Z2 w1520266336
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/alu.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/alu.v
+IzA8`Ce18I39OU=27VGIgE3
+R0
+Z2 w1520271129
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/alu.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/alu.v
 L0 6
 Z3 OL;L;10.6a;65
-Z4 !s108 1520270359.000000
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/alu.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/alu.v|
+!s108 1520457253.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/alu.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/alu.v|
 !i113 0
-Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z6 tCvgOpt 0
+Z4 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z5 tCvgOpt 0
 vbr
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 kW=jDhJAFZ;JodM_=1mA_0
-IfL7?K6IdecOPBJzjDZ;GD0
-R1
+IV7>ZzG`GAlgckLdzD:P6>2
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/br.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/br.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/br.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/br.v
 L0 6
 R3
-R4
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/br.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/br.v|
+Z6 !s108 1520457254.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/br.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/br.v|
 !i113 0
+R4
 R5
-R6
 vctrl
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 MQB<WB0?4z701_]P4NFo=1
-IXada]:SFjeA96md?S;aOS2
-R1
-w1520270900
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ctrl.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ctrl.v
+I3=@OD=4Ddn>J`dYmHz79B0
+R0
+R2
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ctrl.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ctrl.v
 L0 8
 R3
-!s108 1520270903.000000
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ctrl.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ctrl.v|
-!i113 0
-R5
 R6
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ctrl.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ctrl.v|
+!i113 0
+R4
+R5
 vim
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 YmTHVZdXTiL976]ER;gBQ0
-IU=dmk[2eIRR58^Ul`[2XR1
-R1
+IfC:Lb<7=NcCh2dZY=kO7^1
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/im.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/im.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/im.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/im.v
 L0 6
 R3
-R4
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/im.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/im.v|
-!i113 0
-R5
 R6
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/im.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/im.v|
+!i113 0
+R4
+R5
 vir
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 l3Y9Jj382IDORE4aRhmV:3
-I@7NTnWZ<XYok=z66gHHZ=1
-R1
+IJ_aZG_gi7W3XJQN>]fT3>0
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ir.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ir.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ir.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ir.v
 L0 6
 R3
-Z7 !s108 1520270360.000000
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ir.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/ir.v|
-!i113 0
-R5
 R6
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ir.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/ir.v|
+!i113 0
+R4
+R5
 vmux32
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 Acz_fIGhQd8CLP=K1MHX>1
-IUf[?2BI`BB^:BLB:MbOz11
-R1
+IIef4NhCKf2WDmhnS4hYkD2
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux32.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux32.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux32.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux32.v
 L0 6
 R3
-R7
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux32.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux32.v|
+Z7 !s108 1520457255.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux32.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux32.v|
 !i113 0
+R4
 R5
-R6
 vmux4
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 HRz]=:ikHCjI1m7o^]0YV0
-I2IkL0<FB8eK3an@AzW45]1
-R1
+I:a4Ylz5UgXFzP4l2`^b6c1
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux4.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux4.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux4.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux4.v
 L0 6
 R3
 R7
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux4.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/mux4.v|
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux4.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/mux4.v|
 !i113 0
+R4
 R5
-R6
 vpc
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 g^<1nG1lh^PTV0;zBeBzj0
-I3KOfN=]W0nf9m:SW]T0om0
-R1
+IVaBn3bo6gnKggfi^_X6I[0
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/pc.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/pc.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/pc.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/pc.v
 L0 6
 R3
 R7
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/pc.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/pc.v|
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/pc.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/pc.v|
 !i113 0
+R4
 R5
-R6
 vrf
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 XVDm?U9d[kC1>4Q]JPGm:0
-IX>2Xkj1>@LfH>YT1eU^BE0
-R1
+IHOBWS^]Z?8Ra:0>4>Mi<e0
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/rf.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/rf.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/rf.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/rf.v
 L0 6
 R3
-Z8 !s108 1520270361.000000
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/rf.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/rf.v|
+R7
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/rf.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/rf.v|
 !i113 0
+R4
 R5
-R6
 vsisc
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 _[`:Y3=4;H2G?K4kRbda^2
-IFGV2o>POcnaJ6@^lj1TG20
-R1
+IcBRXPkUTccIGW`MXVj]Bn2
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc.v
 L0 6
 R3
-R8
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc.v|
+Z8 !s108 1520457256.000000
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc.v|
 !i113 0
+R4
 R5
-R6
 vsisc_tb
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 XJeQjmc9lBbBAOaQHdTH11
-I_h?9H2Y56H?Xe<35C`HXP1
-R1
+IaQn2g_l5llLlZQ5<3I`dM0
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc_tb_p2.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc_tb_p2.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc_tb_p2.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc_tb_p2.v
 L0 6
 R3
 R8
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc_tb_p2.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/sisc_tb_p2.v|
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc_tb_p2.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/sisc_tb_p2.v|
 !i113 0
+R4
 R5
-R6
 vstatreg
-R0
+R1
 r1
 !s85 0
 31
 !i10b 1
 !s100 N8RNk@:0mCn87Q8FG?AQL3
-I2ngInhRKLkzFE>lJK`j0Z1
-R1
+Ih1QOjm9<b;SL9G=HbcghO3
+R0
 R2
-8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/statreg.v
-F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/statreg.v
+8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/statreg.v
+F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/statreg.v
 L0 6
 R3
 R8
-!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/statreg.v|
-!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/SISC-Processor-master/ProjectPartTwo/statreg.v|
+!s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/statreg.v|
+!s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/ProjectPartTwo/statreg.v|
 !i113 0
+R4
 R5
-R6
