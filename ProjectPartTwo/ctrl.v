@@ -165,8 +165,6 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 		else if (present_state == decode) 
 		begin
-
-				//if ADI br_sel<=1
 			if (opcode == BRR || opcode == BNR) 
 			begin
 				br_sel <= 1'b0; //relative branch
@@ -182,7 +180,6 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 				begin
 					pc_sel<=1'b1; //take branch
 					pc_write <= 1'b1;
-					//present_state <= fetch;
 					
 				end
 				else if (opcode == BRA || opcode == BRR) //logic positive branches
@@ -192,7 +189,6 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 					begin
 						pc_sel <= 1'b1; //take branch
 						pc_write <= 1'b1;
-						//present_state <= fetch;
 					end
 					else
 					begin
@@ -211,13 +207,10 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 					begin
 						pc_sel <= 1'b1; //take branch
 						pc_write <= 1'b1;
-						//present_state <= fetch;
 					end
 				end
 		
 			end    
-
-			  //else
 		end
 
 		else if (present_state == execute)
@@ -246,7 +239,6 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 		
 		else if (present_state == writeback) // only write in writeback
 		begin
-			//pc_write <= 1'b1; // save the value: Memory address <- [PC]
                         if (opcode == ALU_OP) 
                         begin
 				rf_we <= 1'b1; //write
