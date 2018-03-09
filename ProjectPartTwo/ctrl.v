@@ -176,7 +176,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 			if (opcode == BRA || opcode == BRR || opcode == BNE || opcode == BNR) //branch
 			begin
 			
-				if (mm == 4'b0000) //unconditional branch if all are 0
+				if (mm == 4'b0000 && (opcode == BNE || opcode == BNR)) //unconditional branch if all are 0
 				begin
 					pc_sel<=1'b1; //take branch
 					pc_write <= 1'b1;
