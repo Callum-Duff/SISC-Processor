@@ -60,13 +60,10 @@
 88100001 //1E:     ADI  R1,R0,1      R1 <- R0 + 0x(0000)0001             Set R1 = 1
 88200004 //1F:     ADI  R2,R0,4      R2 <- R0 + 0x(0000)0004             Set R2 = 4
 20400008 //20:     STA  R4,#0008     M(0008) <- R4                       LOC 0008 = 00000006
-//added this one below
-10200008 //22:     LDA  R2,#0008     R2 <- M(0008)                       R2 = 6
-
-//28510008 //21:     STX  R5,R1,#0008  M(R1+0008) <- R5                    LOC 0009 = FF000019
-//10200009 //22:     LDA  R2,#0009     R2 <- M(0009)                       R2 = FF000019
-//8830FFF8 //23:     ADI  R3,R0,-8     R3 <- R0 + 0x(FFFF)FFF8             Set R3 = -8
-//18330010 //24:     LDX  R3,R3,16     R3 <- M(R3+0010)                    R3 = 00000006
+28510008 //21:     STX  R5,R1,#0008  M(R1+0008) <- R5                    LOC 0009 = FF000019
+10200009 //22:     LDA  R2,#0009     R2 <- M(0009)                       R2 = FF000019
+8830FFF8 //23:     ADI  R3,R0,-8     R3 <- R0 + 0x(FFFF)FFF8             Set R3 = -8
+18330010 //24:     LDX  R3,R3,16     R3 <- M(R3+0010)                    R3 = 00000006
 F0000000 //25:     HLT                                                   Halt program
 
 // At this point, registers should be as follows:

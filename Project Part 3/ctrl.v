@@ -145,14 +145,11 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	begin   
 		//default values part 1
 		rf_we <= 1'b0;
-		alu_op <= 2'b10;
 		wb_sel <= 1'b0; //Needs to be 1 on store or load instruction
 		
 		//default values part 2
 		pc_write <= 1'b0; //By default, save selected value/overwrite saved value
 		pc_rst <= 1'b0; //Don't reset the pc!!
-		
-		
 		ir_load <= 1'b0; //by default don't load the read_data into the instruction register
 		
 
@@ -163,10 +160,13 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 		end
 		if (present_state == fetch) //increment pc
 		begin
+			$display("in fetch");
 			//default values for part 3
+			alu_op <= 2'b10;
+			br_sel <= 1'b0;
 			rb_sel <= 1'b0; //default select value for mux4 b/c 0 from part1
-		    mm_sel <= 1'b1; //by default, select immediate value (instr[15:0])
-		    dm_we <= 1'b0; //by default, don't save write_data to the memory address specified by write_addr
+		    	mm_sel <= 1'b1; //by default, select immediate value (instr[15:0])
+		    	dm_we <= 1'b0; //by default, don't save write_data to the memory address specified by write_addr
 		
 			pc_sel <= 1'b0;
 			pc_write <= 1'b1;
@@ -176,12 +176,13 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 		else if (present_state == decode) 
 		begin
+		    $display("in decode");
 			//----------------PART 3------------------- 
-		    if(opcode == LOD)
+		    	if(opcode == LOD)
 			begin
 			    rb_sel <= 1'b1;
 			end
-			 if(opcode == ALU_OP && mm == 4'b1000)
+			if(opcode == ALU_OP && mm == 4'b1000)
 			begin
 			    rb_sel <= 1'b1;
 			end
@@ -236,6 +237,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 
 		else if (present_state == execute)
 		begin
+			$display("in execute");
 			
 			if (opcode == ALU_OP && mm == 4'b1000) //ADI
 			begin
@@ -248,11 +250,11 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 			
 			if((opcode == LOD || opcode == STR) && (mm == 4'b0000))
 			begin 
-				alu_op <= 2'b01;
+				alu_op <= 2'b11;
 		    end
 			else if((opcode == LOD || opcode == STR) && (mm == 4'b1000))
 			begin 
-				alu_op <= 2'b00;
+				alu_op <= 2'b10;
 		    end
 		    
 			if(opcode == STR || opcode == LOD)
@@ -271,32 +273,47 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 		end
 		else if (present_state == mem) //no memory access needed in this part
 		begin
+			$display("in mem");
 			//-----------------------part3-------------------------
 			if(opcode == STR)
 			begin
 				dm_we <= 1'b1;
-		    end
+				wb_sel <= 1'b1;
+		    	end
 			if(opcode == LOD)
 			begin
+                                rf_we <= 1'b1; //write
+                                //dm_we <= 1'b1;
 				wb_sel <= 1'b1;
 			end
-			
+			/*
+			if (opcode == ALU_OP && mm == 4'b1000) //ADI
+			begin
+				alu_op <= 2'b01; //arithmetic, uses immediate
+			end
+			else if(opcode == ALU_OP)//The rest of the arithmetic operations: ADD, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL
+			begin
+				alu_op <= 2'b00; //arithmetic, does not use immediate
+			end
+			*/
 			//------------------------------------------------------
 			/*
-			if ((opcode == ALU_OP || opcode == LOD || opcode == STR) && mm == 4'b1000) //ADI
+			if ((opcode == ALU_OP) && mm == 4'b1000) //ADI
 			begin
 				alu_op <= 2'b11; //save stat reg, uses immediate
 			end
 			else //The rest of the arithmetic operations: ADD, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL
-			begin
+			begin if (opcode == ALU_OP)
 				alu_op <= 2'b10; //non-arithmetic, does not use immediate
 			end
 			*/
+			
 			
 		end
 		
 		else if (present_state == writeback) // only write in writeback
 		begin
+			$display("in writeback");
 			//-----------------------part3-------------------------
 			
 			if(opcode == LOD)
@@ -312,10 +329,10 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 			*/
 			//------------------------------------------------------
 			
-            if (opcode == ALU_OP) 
-            begin
+            		if (opcode == ALU_OP) 
+            		begin
 			    rf_we <= 1'b1; //write
-            end
+            		end
 		end
 	end
 
