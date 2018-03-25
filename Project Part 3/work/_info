@@ -22,12 +22,12 @@ Z2 w1521433768
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/alu.v
 L0 6
 Z3 OL;L;10.6a;65
-!s108 1521938827.000000
+Z4 !s108 1522004235.000000
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/alu.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/alu.v|
 !i113 0
-Z4 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z5 tCvgOpt 0
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 tCvgOpt 0
 vbr
 R0
 r1
@@ -42,32 +42,32 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/br.v
 L0 6
 R3
-Z6 !s108 1521938828.000000
+R4
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/br.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/br.v|
 !i113 0
-R4
 R5
+R6
 vctrl
 R0
 r1
 !s85 0
 31
 !i10b 1
-!s100 MJ[WnO^>g[laMLVb<BicD3
-I1D05MOok=Ijo8B@Ug68FU1
+!s100 CNMm<7Z0b`IUJdzlLojLK0
+ILZGPb@[i3YPGY=m]Fd6_d1
 R1
-w1521940833
+w1522005073
 8//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/ctrl.v
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/ctrl.v
 L0 9
 R3
-!s108 1521940849.000000
+!s108 1522005076.000000
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/ctrl.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/ctrl.v|
 !i113 0
-R4
 R5
+R6
 vdm
 R0
 r1
@@ -82,12 +82,12 @@ w1460401250
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/dm.v
 L0 6
 R3
-R6
+Z7 !s108 1522004236.000000
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/dm.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/dm.v|
 !i113 0
-R4
 R5
+R6
 vim
 R0
 r1
@@ -102,12 +102,12 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/im.v
 L0 6
 R3
-R6
+R7
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/im.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/im.v|
 !i113 0
-R4
 R5
+R6
 vir
 R0
 r1
@@ -122,12 +122,12 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/ir.v
 L0 6
 R3
-R6
+R7
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/ir.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/ir.v|
 !i113 0
-R4
 R5
+R6
 vmux16
 R0
 r1
@@ -142,12 +142,12 @@ w1454959734
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux16.v
 L0 6
 R3
-Z7 !s108 1521938829.000000
+Z8 !s108 1522004237.000000
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux16.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux16.v|
 !i113 0
-R4
 R5
+R6
 vmux32
 R0
 r1
@@ -162,12 +162,12 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux32.v
 L0 6
 R3
-R7
+R8
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux32.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux32.v|
 !i113 0
-R4
 R5
+R6
 vmux4
 R0
 r1
@@ -182,12 +182,12 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux4.v
 L0 6
 R3
-R7
+R8
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux4.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/mux4.v|
 !i113 0
-R4
 R5
+R6
 vpc
 R0
 r1
@@ -202,12 +202,12 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/pc.v
 L0 6
 R3
-R7
+R8
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/pc.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/pc.v|
 !i113 0
-R4
 R5
+R6
 vrf
 R0
 r1
@@ -222,12 +222,12 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/rf.v
 L0 6
 R3
-R7
+Z9 !s108 1522004238.000000
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/rf.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/rf.v|
 !i113 0
-R4
 R5
+R6
 vsisc
 R0
 r1
@@ -242,12 +242,12 @@ w1521941198
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/sisc.v
 L0 6
 R3
-!s108 1521941200.000000
+R9
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/sisc.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/sisc.v|
 !i113 0
-R4
 R5
+R6
 vsisc_tb
 R0
 r1
@@ -262,12 +262,12 @@ w1492434345
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/sisc_tb_p3.v
 L0 6
 R3
-Z8 !s108 1521938830.000000
+R9
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/sisc_tb_p3.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/sisc_tb_p3.v|
 !i113 0
-R4
 R5
+R6
 vstatreg
 R0
 r1
@@ -282,9 +282,9 @@ R2
 F//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/statreg.v
 L0 6
 R3
-R8
+!s108 1522004239.000000
 !s107 //iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/statreg.v|
 !s90 -reportprogress|300|-work|work|//iowa.uiowa.edu/shared/engineering/home/chpierce/windowsdata/Desktop/Project Part 3/statreg.v|
 !i113 0
-R4
 R5
+R6

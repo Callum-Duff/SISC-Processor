@@ -145,7 +145,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 	begin   
 		//default values part 1
 		rf_we <= 1'b0;
-		wb_sel <= 1'b0; //Needs to be 1 on store or load instruction
+		
 		
 		//default values part 2
 		pc_write <= 1'b0; //By default, save selected value/overwrite saved value
@@ -162,6 +162,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 		begin
 			$display("in fetch");
 			//default values for part 3
+			wb_sel <= 1'b0; //Needs to be 1 for load instruction
 			alu_op <= 2'b10;
 			br_sel <= 1'b0;
 			rb_sel <= 1'b0; //default select value for mux4 b/c 0 from part1
@@ -178,14 +179,11 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 		begin
 		    $display("in decode");
 			//----------------PART 3------------------- 
-		    	if(opcode == LOD)
+		    	if(opcode == STR) //need Rd instead of Rt
 			begin
 			    rb_sel <= 1'b1;
 			end
-			if(opcode == ALU_OP && mm == 4'b1000)
-			begin
-			    rb_sel <= 1'b1;
-			end
+
 			//-----------------------------------------
 			if (opcode == BRR || opcode == BNR) 
 			begin
@@ -248,69 +246,45 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 				alu_op <= 2'b00; //arithmetic, does not use immediate
 			end
 			
-			if((opcode == LOD || opcode == STR) && (mm == 4'b0000))
+			if((opcode == LOD || opcode == STR) && (mm == 4'b1000))
 			begin 
-				alu_op <= 2'b11;
-		    end
-			else if((opcode == LOD || opcode == STR) && (mm == 4'b1000))
+				alu_op <= 2'b01; //use immediate
+		    	end
+			else if((opcode == LOD || opcode == STR) && (mm == 4'b0000))
 			begin 
-				alu_op <= 2'b10;
-		    end
+				alu_op <= 2'b00; //don't use immediate
+		    	end
 		    
 			if(opcode == STR || opcode == LOD)
 			begin
-				//dm_we <= 1'b1;
-				if(mm == 4'b0000)
+				if(mm == 4'b0000) //LDA and STA
 				begin
 					mm_sel <= 1'b1; //Select the instr[15:0] (immediate value)
 				end
-				else
+				else //LDX, STX
 				begin
-					mm_sel <= 1'b0;
+					mm_sel <= 1'b0; //select output of alu result (imm + rs)
 				end
 			end
 			
 		end
-		else if (present_state == mem) //no memory access needed in this part
+		else if (present_state == mem) 
 		begin
 			$display("in mem");
 			//-----------------------part3-------------------------
 			if(opcode == STR)
 			begin
 				dm_we <= 1'b1;
-				wb_sel <= 1'b1;
 		    	end
-			if(opcode == LOD)
+			if(opcode == LOD) //if not a load default selects the alu result
 			begin
-                                //dm_we <= 1'b1;
 				wb_sel <= 1'b1;
 			end
-			/*
-			if (opcode == ALU_OP && mm == 4'b1000) //ADI
-			begin
-				alu_op <= 2'b01; //arithmetic, uses immediate
-			end
-			else if(opcode == ALU_OP)//The rest of the arithmetic operations: ADD, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL
-			begin
-				alu_op <= 2'b00; //arithmetic, does not use immediate
-			end
-			*/
-			//------------------------------------------------------
-			/*
-			if ((opcode == ALU_OP) && mm == 4'b1000) //ADI
-			begin
-				alu_op <= 2'b11; //save stat reg, uses immediate
-			end
-			else //The rest of the arithmetic operations: ADD, ADD IMM, SUB, NOT, OR, AND, XOR, ROTR, ROTL, SHFR, SHFL
-			begin if (opcode == ALU_OP)
-				alu_op <= 2'b10; //non-arithmetic, does not use immediate
-			end
-			*/
 			
 			
 		end
 		
-		else if (present_state == writeback) // only write in writeback
+		else if (present_state == writeback)
 		begin
 			$display("in writeback");
 			//-----------------------part3-------------------------
@@ -318,14 +292,7 @@ module ctrl (clk, rst_f, opcode, mm, stat, rf_we, alu_op, wb_sel, br_sel, rb_sel
 			if(opcode == LOD)
 			begin
 			    rf_we <= 1'b1; //write
-				//wb_sel <= 1'b1;
 			end
-			/*
-			if(opcode == STR)
-			begin
-			    wb_sel <= 1'b1;
-			end
-			*/
 			//------------------------------------------------------
 			
             		if (opcode == ALU_OP) 
