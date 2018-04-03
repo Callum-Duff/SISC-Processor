@@ -88,9 +88,9 @@ module sisc (clk, rst_f);
       /*$monitor("IR=%h,R0=%h,R1=%h, R2=%h, R3=%h, R4=%h, R5=%h, RB_SEL=%h, ALU_OP=%h, WB_SEL=%h, RF_WE=%h, WRITE_DATA=%h, write_addr=%h, PC=%h, PC_WRITE=%h, PC_SEL=%h, BR_SEL=%h, MM_SEL=%h, DM_WE=%h, m[8]=%h, m[9]=%h, wr_sel=%h ",
 	  instr,register.ram_array[0],register.ram_array[1],register.ram_array[2],register.ram_array[3],register.ram_array[4],register.ram_array[5],
        rb_sel, ctrlToALUalu_op, ctrlToMUX32sel, ctrlToRFrf_we, mux32ToRF, mux16out, pc, pc_write, pc_sel, br_sel, mm_sel, dm_we, data_module.ram_array[8],data_module.ram_array[9], wr_sel);*/
-	$monitor("IR=%h, R1=%h, R2=%h, R3=%h, R4=%h, R5=%h, R6=%h, m[0]=%h, m[1]=%h, m[2]=%h, m[3]=%h, m[4]=%h" , 
+	$monitor("IR=%h, R1=%h, R2=%h, R3=%h, R4=%h, R5=%h, R6=%h, m[0]=%h, m[1]=%h, m[2]=%h, m[3]=%h, m[4]=%h, m[5]=%h, m[6]=%h, m[7]=%h, m[8]=%h, m[9]=%h" , 
 	instr,register.ram_array[1],register.ram_array[2],register.ram_array[3],register.ram_array[4],register.ram_array[5],register.ram_array[6],data_module.ram_array[0], data_module.ram_array[1], data_module.ram_array[2],
- data_module.ram_array[3],data_module.ram_array[4]);
+ data_module.ram_array[3],data_module.ram_array[4],data_module.ram_array[5],data_module.ram_array[6],data_module.ram_array[7],data_module.ram_array[8],data_module.ram_array[9]);
     end
   
 // put a $monitor statement here.  

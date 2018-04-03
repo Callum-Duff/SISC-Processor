@@ -40,7 +40,7 @@
 
 //if R2>R1 swap
 80612002 //1a:     SUB  R6,R1,R2 R6 <- R1 - R2
-4300001D //1b:     BRA    PC <- 1D   If R6 <= 0, swap
+4700001D //1b:     BRA    PC <- 1D   If R6 <= 0 or underflow, swap
 60000023 //1c:     unconditional branch to loop
 //swap
 30120000 //1d:     swap r1 and r2

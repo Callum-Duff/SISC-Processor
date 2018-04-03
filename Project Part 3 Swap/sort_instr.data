@@ -11,7 +11,7 @@
 18320000 //06:     LDX  R3,R2,0     R3 <- M(R3+0000)     R3 = m[R2]
 1842FFFF //07:     LDX  R4,R2,-1     R4 <- M(R4+FFFF)     R3 = m[R2-1]
 80543002 //08:     SUB  R5,R4,R3 R5 <- R4 - R3
-53000005 //09:     BRR          PC <- PC + 5          If R5 <= 0, don't swap
+57000005 //09:     BRR          PC <- PC + 5          If R5 <= 0, don't swap
 
 30340000 //0a:     swap r3 and r4
 28320000 //0b:     STX  R3,R2,#0000  M(R1+0000) <- R3
