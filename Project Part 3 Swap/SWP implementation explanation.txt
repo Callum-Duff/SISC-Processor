@@ -1,0 +1,10 @@
+We implemented the swap instruction by adding a mux 4 and editting
+the mux32 to be 4:1. The mux4 took in RS or RD and selected which
+would be the Write_Reg for the RF module. This allowed us to either
+write to RD or RS instead of always RD. We changed the mux32 to a 4:1
+mux so we could select the data that was written to either be RSA or RSB
+in addition to the alu_resul or dm_result. RSA contains the contents of RS
+and RSB contains the contents or RD or RT. So to swap the two registers we
+simply selected RD as the write register and RS as the write data in mem
+and RS as the write register and RD as the write data in writeback. This
+allowed us to swap two registers.
