@@ -1,0 +1,27 @@
+//Bubble Sort
+
+00000000 //00:     NOOP
+10100000 //01:     LDA r1, m[0] R1 -> m[0] (n)
+88210000 //02: L1: ADI  R2,R1,0      R2 <- R1 + 0x(0000)0000   Set R2 = R1
+
+8822FFFF //03: L2: ADI  R2,R2,-1     R2 <- R2 - 1   Decrement R2
+43000012 //04:     BRA          PC <- 12            If R2 <= 0, done
+88220001 //05:     ADI  R2,R2,-1     R2 <- R2 + 1   Increment R2
+
+18320000 //06:     LDX  R3,R2,0     R3 <- M(R3+0000)     R3 = m[R2]
+1842FFFF //07:     LDX  R4,R2,-1     R4 <- M(R4+FFFF)     R3 = m[R2-1]
+80543002 //08:     SUB  R5,R4,R3 R5 <- R4 - R3
+57000005 //09:     BRR          PC <- PC + 5          If R5 <= 0, don't swap
+
+30340000 //0a:     swap r3 and r4
+28320000 //0b:     STX  R3,R2,#0000  M(R1+0000) <- R3
+2842FFFF //0c:     STX  R4,R2,#FFFF  M(R1+FFFF) <- R4  
+60000002 //0d:     BNE  #0,L1        PC <- 0x002 (uncond.)    Branch to L1  
+ 
+28320000 //0e:     STX  R3,R2,#0000  M(R1+0000) <- R3
+2842FFFF //0f:     STX  R4,R2,#FFFF  M(R1+FFFF) <- R4
+8822FFFF //10:     ADI  R2,R2,-1     R2 <- R2 - 1   Decrement R2
+60000003 //11:     BNE  #0,L2        PC <- 0x003 (uncond.)    Branch to L2
+F0000000 //12:     HLT 
+
+

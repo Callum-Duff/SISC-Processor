@@ -1,0 +1,82 @@
+00000000 //00 	NOP to Start
+10100000 //01	Load R1 with M[0]
+10200001 //02	Load R2 with M[1]
+
+//First check if either R1 or R2 is 0
+88110000 //03:   ADI  R1,R1,0      R1 <- R1 + 0x(0000)0000 
+4100002E //04:   BRA    PC <- 2E   If R1 == 0, branch to mem loading
+
+88220000 //05:   ADI  R2,R2,0      R2 <- R2 + 0x(0000)0000 
+4100002F //06:   BRA    PC <- 2F   If R2 == 0, branch to mem loading
+
+//if R1 negative
+88110000 //07:   ADI  R1,R1,0      R1 <- R1 + 0x(0000)0000 
+4300000A //08:   BRA    PC <- 0A  If R1 <= 0, inc R5
+6000000B //09:   else: branch past incrementing negative count
+88550001 //0a:   ADI  R5,R5,1    R5=R5+1: inc number of negatives
+
+//if R2 negative
+88220000 //0b:   ADI  R2,R2,0      R2 <- R2 + 0x(0000)0000 
+4300000E //0c:   BRA    PC <- 0E   If R2 <= 0, inc R5
+6000000F //0d:   else: branch past incrementing negative count
+88550001 //0e:   ADI  R5,R5,1    R5=R5+1: inc number of negative
+
+// Check if R5 == 2 : both negative
+8865FFFE //0f:   ADI  R6,R5,-2      R6 = R5 - 2 
+41000012 //10:   BRA    PC <- 12  If R6 == 0, branch to 2s comp both
+60000017 //11:   else: branch to next check
+
+//2s comp both
+8811FFFF //12:   ADI R1,R1,-1     R1 = R1 - 1
+80110004 //13:	 Negate R1
+8822FFFF //14:   ADI R2,R2,-1      R2 = R2 - 1
+80220004 //15:	 Negate R2
+6000001F //16:   branch past other checks to swap check
+
+//check if R5 == 1 : 1 negative
+8865FFFF //17:   ADI  R6,R5,-1      R6 = R5 - 1 
+4100001A //18:   BRA    PC <- 1A  If R6 == 0, branch to positive swap
+6000001F //19:   else: branch to next check
+
+//if R2>R1 swap
+80612002 //1a:     SUB  R6,R1,R2 R6 <- R1 - R2
+4700001D //1b:     BRA    PC <- 1D   If R6 <= 0 or underflow, swap
+60000023 //1c:     unconditional branch to loop
+//swap
+30120000 //1d:     swap r1 and r2
+60000023 //1e:     branch past other checks
+
+//else R5 == 0 : both positive
+//if R1>R2 swap
+80621002 //1f:     SUB  R6,R2,R1 R6 <- R2 - R1
+43000022 //20:     BRA  PC <- 22   If R6 <= 0, swap
+60000023 //21:     unconditional branch past swap
+//swap
+30120000 //22:     swap r1 and r2
+
+//Loop: Add R2 + R2 R1 times into R4
+80442001 //23:   ADD  R4,R4,R2     R4 <- R4 + R2
+44000026 //24:   BRA   PC <- 26 If overflow
+60000027 //25:   else: unconditional past overflow check
+
+//add 1 to MSB and reset overflow count
+88330001 //26:   ADI  R3,R3,1    R3=R3+1
+
+8811FFFF //27:   ADI  R1,R1,-1     R1 <- R1 - 1   Decrement R1
+4300002A //28:   BRA    PC <- 2A  If R1 <= 0, done
+60000023 //29:   unconditional branch to beginning of loop
+
+
+//subtract 1 from R3
+8833FFFF //2a:   ADI  R3,R3,-1     R3 <- R3 - 1   Decrement R3
+4300002D //2b:   BRA  PC <- 22   If R3 <= 0, set to R3 to 0
+6000002E //2c:   unconditional branch past setting R3 to 0
+//set R3 to 0
+88300000 //2d:   ADI  R3,R0,0      R3 = 0 
+
+//writeback
+20300002 //2e:     STA  R3,#0002     M(0002) <- R3                  
+20400003 //2f:     STA  R4,#0003     M(0003) <- R4     
+
+
+F0000000 //30: HALT
